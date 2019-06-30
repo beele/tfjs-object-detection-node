@@ -1,0 +1,27 @@
+{
+  "name": "yolov3",
+  "version": "1.0.0",
+  "description": "yolo v3 node test app",
+  "main": "src/index.js",
+  "scripts": {
+    "exec": "tsc && node src/index.js"
+  },
+  "keywords": [
+    "yolo",
+    "ai",
+    "ml",
+    "yolo",
+    "v3",
+    "computer",
+    "vision"
+  ],
+  "author": "Kevin Van den Abeele <kevin.vandenabeele@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@tensorflow/tfjs-node": "^1.2.3",
+    "canvas": "^2.5.0",
+    "inkjet": "^2.1.2",
+    "jsdom": "^15.1.1",
+    "tfjs-yolov3": "^1.1.0"
+  }
+}
