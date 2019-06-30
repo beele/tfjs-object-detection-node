@@ -1,27 +1,31 @@
 {
-  "name": "yolov3",
+  "name": "yolo-v3-node",
   "version": "1.0.0",
-  "description": "yolo v3 node test app",
+  "description": "Yolo V3 implementation for usage in node. Based on https://github.com/zqingr/tfjs-yolov3/blob/master/README_EN.md",
   "main": "src/index.js",
   "scripts": {
+    "install-debs-raspberry": "sudo apt-get update && sudo apt-get install build-essential libcairo2-dev libpango1.0-dev libjpeg-dev libgif-dev librsvg2-dev",
     "exec": "tsc && node src/index.js"
   },
   "keywords": [
     "yolo",
+    "yolo v3",
+    "You only look once",
     "ai",
+    "artificial intelligence",
     "ml",
-    "yolo",
-    "v3",
-    "computer",
-    "vision"
+    "machine learning",
+    "computer vision",
+    "tensorflow",
+    "tensorflow.js"
   ],
   "author": "Kevin Van den Abeele <kevin.vandenabeele@gmail.com>",
   "license": "MIT",
+  "devDependencies": {
+    "typescript": "^3.5.2"
+  },
   "dependencies": {
     "@tensorflow/tfjs-node": "^1.2.3",
-    "canvas": "^2.5.0",
-    "inkjet": "^2.1.2",
-    "jsdom": "^15.1.1",
-    "tfjs-yolov3": "^1.1.0"
+    "canvas": "^2.5.0"
   }
 }
