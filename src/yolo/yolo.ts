@@ -193,20 +193,18 @@ async function yoloEval(
             right: box[3],
             width: +box[3] - +box[1],
             height: +box[2] - +box[0],
-            scores: scores_[i][0],
-            classes: COCO_CLASSESS[classes_[i]]
+            score: scores_[i][0],
+            class: COCO_CLASSESS[classes_[i]]
         }
     })
 }
 
-export async function yolov3Tiny({modelUrl = './resources/models/yolov3-tiny/model.json', anchors = ANCHORS_TINY}: { modelUrl?: string; anchors?: number[]} = {}) {
-    const yoloTinyData = await yolo({modelUrl, anchors});
-    return yoloTinyData
+export async function yolov3Tiny({modelUrl = './resources/models/yolo/yolov3-tiny/model.json', anchors = ANCHORS_TINY}: { modelUrl?: string; anchors?: number[]} = {}) {
+    return await yolo({modelUrl, anchors})
 }
 
-export async function yolov3({modelUrl = './resources/models/yolov3/model.json', anchors = ANCHORS}: { modelUrl?: string; anchors?: number[]} = {}) {
-    const yoloData = await yolo({modelUrl, anchors});
-    return yoloData
+export async function yolov3({modelUrl = './resources/models/yolo/yolov3/model.json', anchors = ANCHORS}: { modelUrl?: string; anchors?: number[]} = {}) {
+    return await yolo({modelUrl, anchors})
 }
 
 async function yolo({modelUrl, anchors}: { modelUrl: string, anchors: number[]}) {

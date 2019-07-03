@@ -1,26 +1,29 @@
 {
-  "name": "yolo-v3-node",
-  "version": "1.0.0",
-  "description": "Yolo V3 implementation for usage in node. Based on https://github.com/zqingr/tfjs-yolov3/blob/master/README_EN.md",
+  "name": "tfjs-object-detection-node",
+  "version": "2.0.0",
+  "description": "Library for detecting objects in images. Based on https://github.com/zqingr/tfjs-yolov3/blob/master/README_EN.md and https://github.com/tensorflow/tfjs-models/tree/master/coco-ssd",
   "main": "src/index.js",
   "scripts": {
     "install-debs-raspberry": "sudo apt-get update && sudo apt-get install build-essential libcairo2-dev libpango1.0-dev libjpeg-dev libgif-dev librsvg2-dev",
-    "exec": "tsc && node src/index.js"
+    "exec": "tsc && node src/test.js"
   },
   "keywords": [
     "yolo",
     "yolo v3",
     "You only look once",
+    "coco",
+    "coco ssd",
     "ai",
     "artificial intelligence",
     "ml",
     "machine learning",
     "computer vision",
+    "tfjs",
     "tensorflow",
     "tensorflow.js"
   ],
   "author": "Kevin Van den Abeele <kevin.vandenabeele@gmail.com>",
-  "license": "MIT",
+  "license": "Apache-2.0",
   "devDependencies": {
     "typescript": "^3.5.2"
   },
