@@ -68,7 +68,6 @@ function printProcessDuration(name: string, start: number): void {
 }
 
 function printResults(results: any[]): void {
-    console.log('---------------------------------------');
     for (const result of results) {
         console.log('==> Detected: ' + result.class + ' [' + Math.round(result.score * 100) + '%]');
     }
