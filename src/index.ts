@@ -1,5 +1,5 @@
 import {yolov3, yolov3Tiny} from "./yolo/yolo";
-import {createCanvas, Image} from "canvas";
+import {loadImage, createCanvas, Image} from "canvas";
 import {createCocoModel, ObjectDetection} from "./coco/coco";
 
 export async function loadYoloV3Lite(basePath?: string): Promise<Detector> {
@@ -52,7 +52,11 @@ export async function loadCoco(useLiteModel: boolean, basePath?:string): Promise
     return Promise.resolve(detector);
 }
 
-function createCanvasFromImage(image: Image): HTMLCanvasElement {
+export async function createImage(pathOrUrl: string): Promise<Image> {
+    return loadImage(pathOrUrl);
+}
+
+export function createCanvasFromImage(image: Image): HTMLCanvasElement {
     const canvas: HTMLCanvasElement = createCanvas(image.width, image.height) as unknown as HTMLCanvasElement;
     console.log(canvas);
     const ctx = canvas.getContext('2d');

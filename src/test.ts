@@ -1,5 +1,4 @@
-import {Image, loadImage} from "canvas";
-import {Detector, loadCoco, loadYoloV3, loadYoloV3Lite} from "./index";
+import {createImage, Detector, loadCoco, loadYoloV3, loadYoloV3Lite} from "./index";
 
 async function start () {
 
@@ -13,7 +12,7 @@ async function start () {
         console.log('Detecting objects in: ' + imgName);
         console.log('=======================================');
 
-        const image: Image = await loadImage('./resources/images/' + imgName);
+        const image = await createImage('./resources/images/' + imgName);
         await yoloV3Lite.detect(image);
         await yoloV3.detect(image);
         await coco.detect(image);
