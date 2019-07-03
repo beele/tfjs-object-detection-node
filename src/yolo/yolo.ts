@@ -199,15 +199,15 @@ async function yoloEval(
     })
 }
 
-export async function yolov3Tiny({modelUrl = './resources/models/yolo/yolov3-tiny/model.json', anchors = ANCHORS_TINY}: { modelUrl?: string; anchors?: number[]} = {}) {
-    return await yolo({modelUrl, anchors})
+export async function yolov3Tiny(basePath = '.') {
+    return await yolo(basePath + '/resources/models/yolo/yolov3-tiny/model.json', ANCHORS_TINY)
 }
 
-export async function yolov3({modelUrl = './resources/models/yolo/yolov3/model.json', anchors = ANCHORS}: { modelUrl?: string; anchors?: number[]} = {}) {
-    return await yolo({modelUrl, anchors})
+export async function yolov3(basePath = '.') {
+    return await yolo(basePath + '/resources/models/yolo/yolov3/model.json', ANCHORS)
 }
 
-async function yolo({modelUrl, anchors}: { modelUrl: string, anchors: number[]}) {
+async function yolo(modelUrl: string, anchors: number[]): Promise<any> {
     const model = await tf.loadLayersModel('file://' + resolve(modelUrl));
 
     return async (image: Image) => {

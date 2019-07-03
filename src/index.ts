@@ -2,8 +2,8 @@ import {yolov3, yolov3Tiny} from "./yolo/yolo";
 import {createCanvas, Image} from "canvas";
 import {createCocoModel, ObjectDetection} from "./coco/coco";
 
-export async function loadYoloV3Lite(): Promise<Detector> {
-    const model = await yolov3Tiny();
+export async function loadYoloV3Lite(basePath?: string): Promise<Detector> {
+    const model = await yolov3Tiny(basePath);
     const detector = {
         async detect(image: Image): Promise<Detection[]> {
             const start = Date.now();
@@ -18,8 +18,8 @@ export async function loadYoloV3Lite(): Promise<Detector> {
     return Promise.resolve(detector);
 }
 
-export async function loadYoloV3(): Promise<Detector> {
-    const model = await yolov3();
+export async function loadYoloV3(basePath?: string): Promise<Detector> {
+    const model = await yolov3(basePath);
     const detector = {
         async detect(image: Image): Promise<Detection[]> {
             const start = Date.now();
@@ -34,8 +34,8 @@ export async function loadYoloV3(): Promise<Detector> {
     return Promise.resolve(detector);
 }
 
-export async function loadCoco(useLiteModel: boolean): Promise<Detector> {
-    const model: ObjectDetection = await createCocoModel(useLiteModel);
+export async function loadCoco(useLiteModel: boolean, basePath?:string): Promise<Detector> {
+    const model: ObjectDetection = await createCocoModel(useLiteModel, basePath);
     const detector = {
         async detect(image: Image): Promise<Detection[]> {
             const start = Date.now();

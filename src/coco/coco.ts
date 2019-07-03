@@ -26,8 +26,8 @@ export interface DetectedObject {
     score: number;
 }
 
-export async function createCocoModel(useLiteModel: boolean) {
-    const objectDetection = new ObjectDetection(useLiteModel ? 'mobilenet_v2_lite' : 'mobilenet_v2');
+export async function createCocoModel(useLiteModel: boolean, basePath: string = '.') {
+    const objectDetection = new ObjectDetection(basePath,useLiteModel ? 'mobilenet_v2_lite' : 'mobilenet_v2');
     await objectDetection.load();
     return objectDetection;
 }
@@ -36,8 +36,8 @@ export class ObjectDetection {
     private readonly modelPath: string;
     private model: tf.GraphModel;
 
-    constructor(modelName: string) {
-        this.modelPath = './resources/models/coco/' + modelName;
+    constructor(basePath: string, modelName: string) {
+        this.modelPath = basePath + '/resources/models/coco/' + modelName;
     }
 
     async load() {
