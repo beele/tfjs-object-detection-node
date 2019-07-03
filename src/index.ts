@@ -54,8 +54,11 @@ export async function loadCoco(useLiteModel: boolean, basePath?:string): Promise
 
 function createCanvasFromImage(image: Image): HTMLCanvasElement {
     const canvas: HTMLCanvasElement = createCanvas(image.width, image.height) as unknown as HTMLCanvasElement;
+    console.log(canvas);
     const ctx = canvas.getContext('2d');
+    console.log(canvas);
     ctx.drawImage(image as unknown as HTMLImageElement, 0, 0, image.width, image.height);
+    console.log(canvas);
     return canvas;
 }
 
